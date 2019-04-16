@@ -1,6 +1,6 @@
 """This file contains classes for a simpler an easier print/log handeling"""
 
-import warnings
+from warnings import warn
 from enum import IntEnum
 
 
@@ -37,16 +37,36 @@ VERBOSE = VerboseLevel.FRIVOLOUS  # Change this variable to change the verbose l
 
 
 def error(*args):
+    """
+        Raises an python error.
+        Works is VERBOSE is ERROR or higher.
+            :param args: All formatted into a single string to be used as an error message
+            :return: Raises an error
+    """
     if VERBOSE.value <= VerboseLevel.ERROR.value:
         raise PapageiError(args)
 
 
 def mock_error(*args):
+    """
+        Prints a message in an error-like format without stopping the program.
+        Works if VERBOSE is ERROR or higher.
+            :param args: All formatted into a single string to be used as an error message.
+    """
     if VERBOSE.value <= VerboseLevel.ERROR.value:
         print(*args)
 
 
 def warning(*args, **kwarg):
+    """
+        Generates and print a python warning and returns the warning.
+        Works if VERBOSE is WARNING or higher
+            :param args:    All formatted into a single string to be used as a warning message.
+            :param kwarg:   'type': warning type
+                                    Is a python error type the will be used as the error type.
+                                    Default: UserWarning
+
+            :return: papagei_warning:  Warning of class 'type' containing the error message
     """
     warning_class = kwarg.pop('type', UserWarning)
     msg = _format_string_from_tuple(args)
@@ -55,33 +75,53 @@ def warning(*args, **kwarg):
         warn(papagei_warning)
     return papagei_warning
 
+
 def mock_warning(*args):
+    """
+        Prints a message in an warning-like format without stopping the program.
+        Works if VERBOSE is WARNING or higher.
+            :param args: All formatted into a single string to be used as a warning message.
+    """
     if VERBOSE.value <= VerboseLevel.WARNING.value:
         print(*args)
 
 
-
-
-
-
-
-
 def info(*args):
+    """
+        Prints a message for generic information with a specific info-format.
+        Works if VERBOSE is INFO or higher.
+            :param args: All formatted into a single string to be used as an info message.
+    """
     if VERBOSE.value <= VerboseLevel.INFO.value:
         print(*args)
 
 
 def debug(*args):
+    """
+        Prints a message for debug information with a specific debug-format.
+        Works if VERBOSE is DEBUG or higher.
+            :param args: All formatted into a single string to be used as a debug message.
+    """
     if VERBOSE.value <= VerboseLevel.DEBUG.value:
         print(*args)
 
 
 def frivolity(*args):
+    """
+        Prints a message for very detailed info about the program with a specific frivolity-format.
+        Works if VERBOSE is FRIVOLOUS or higher.
+            :param args: All formatted into a single string to be used as frivolity message.
+    """
     if VERBOSE.value <= VerboseLevel.FRIVOLOUS.value:
         print(*args)
 
+
 def _format_string_from_tuple(string_tuple):
-    """ Gets a tuple and reformats it as a string """
+    """
+        Gets a tuple and formats it as a string
+            :param string_tuple: tuple to be formatted into a string.
+            :return: msg: string generated from the tuple.
+    """
     msg = ''
     for arg in string_tuple:
         msg += str(arg) + ' '
