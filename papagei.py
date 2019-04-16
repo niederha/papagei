@@ -3,6 +3,14 @@
 from warnings import warn
 from enum import IntEnum
 
+# Different display formats
+text_format = {'normal': '\033[0;0;0m', 'error': '\033[0;31;0m', 'warning': '\033[0;31;0m',
+               'info': '\033[0;34;0m', 'debug': '\033[0;32;0m', 'frivolous': '\033[0;0;0m'}
+
+# Different headers
+text_header = {'error': 'ERROR: ', 'warning': ' WARNING: ', 'info': 'INFO: ', 'debug': 'DEBUG: ',
+               'frivolous': 'FRIVOLITY: '}
+
 
 class AutoNumber(IntEnum):
     """ Super class for auto numbering the Enumeration"""
@@ -24,7 +32,7 @@ class VerboseLevel(AutoNumber):
 
 
 class PapageiError(Exception):
-    """ Error class to return actual errors"""
+    """ Error class to return python errors in error()"""
     def __init__(self, args):
         # Formats the arguments into a string for display (takes a tuple as input)
         self.msg = _format_string_from_tuple(args)
@@ -54,7 +62,9 @@ def mock_error(*args):
             :param args: All formatted into a single string to be used as an error message.
     """
     if VERBOSE.value <= VerboseLevel.ERROR.value:
-        print(*args)
+        msg = _format_string_from_tuple(args)
+        msg = text_format['error']+text_header['error']+msg+text_format['normal']
+        print(msg)
 
 
 def warning(*args, **kwarg):
@@ -83,7 +93,9 @@ def mock_warning(*args):
             :param args: All formatted into a single string to be used as a warning message.
     """
     if VERBOSE.value <= VerboseLevel.WARNING.value:
-        print(*args)
+        msg = _format_string_from_tuple(args)
+        msg = text_format['warning'] + text_header['warning'] + msg + text_format['normal']
+        print(msg)
 
 
 def info(*args):
@@ -93,7 +105,9 @@ def info(*args):
             :param args: All formatted into a single string to be used as an info message.
     """
     if VERBOSE.value <= VerboseLevel.INFO.value:
-        print(*args)
+        msg = _format_string_from_tuple(args)
+        msg = text_format['info'] + text_header['info'] + msg + text_format['normal']
+        print(msg)
 
 
 def debug(*args):
@@ -103,7 +117,9 @@ def debug(*args):
             :param args: All formatted into a single string to be used as a debug message.
     """
     if VERBOSE.value <= VerboseLevel.DEBUG.value:
-        print(*args)
+        msg = _format_string_from_tuple(args)
+        msg = text_format['debug'] + text_header['debug'] + msg + text_format['normal']
+        print(msg)
 
 
 def frivolity(*args):
@@ -112,8 +128,9 @@ def frivolity(*args):
         Works if VERBOSE is FRIVOLOUS or higher.
             :param args: All formatted into a single string to be used as frivolity message.
     """
-    if VERBOSE.value <= VerboseLevel.FRIVOLOUS.value:
-        print(*args)
+    msg = _format_string_from_tuple(args)
+    msg = text_format['frivolous'] + text_header['frivolous'] + msg + text_format['normal']
+    print(msg)
 
 
 def _format_string_from_tuple(string_tuple):
