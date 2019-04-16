@@ -8,18 +8,18 @@ more complex error handling or message formatting you might want to get back to 
 
 ## Using papagei
 There are three major components in papagei:
-    * VerboseLevel(Enum) (class)
-    * VERBOSE (object of type VerboseLevel)
-    * The display functions
+    - VerboseLevel(Enum) (class)
+    - VERBOSE (object of type VerboseLevel)
+    - The display functions
  
 ### VerboseLevel and verbose:
 In this implementation papagei has 6 verbose levels:
-    * **SILENT:** Nothing will be displayed no errors will be raised no warnings will be returned.
-    * **ERROR:** Only mock_errors() are displayed. errors are raised as usual. 
-    * **WARNINGS:** Errors behave as usual, and warnings and mock_warnings as well.
-    * **INFO:** All messages from the previous levels plus the info messages.
-    * **DEBUG:** All messages from the previous levels plus the debug messages.
-    * **FRIVOLOUS:** All messages from the previous levels plus the frivolity messages.
+    - **SILENT:** Nothing will be displayed no errors will be raised no warnings will be returned.
+    - **ERROR:** Only mock_errors() are displayed. errors are raised as usual. 
+    - **WARNINGS:** Errors behave as usual, and warnings and mock_warnings as well.
+    - **INFO:** All messages from the previous levels plus the info messages.
+    - **DEBUG:** All messages from the previous levels plus the debug messages.
+    - **FRIVOLOUS:** All messages from the previous levels plus the frivolity messages.
 The verbose level can be set using the VERBOSE variable and the VerboseLevel enum. For example:
     '''python
     VERBOSE = VerboseLevel.INFO
