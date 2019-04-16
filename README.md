@@ -22,9 +22,9 @@ In this implementation papagei has 6 verbose levels:
 - **FRIVOLOUS:** All messages from the previous levels plus the frivolity messages.
 
 The verbose level can be set using the VERBOSE variable and the VerboseLevel enum. For example:
-''' python
+```python
 VERBOSE = VerboseLevel.INFO
-'''
+```
 **NOTE:** Due to its simple implementation the verbose level in papagei only works on the functions 
 form the papagei packages. In other words putting papagei.VERBOSE to silent will not silence errors raised outside of 
 the papagei package, won't implement any warning filter to cancel out warnings from outside of the papapgei module and 
@@ -46,13 +46,13 @@ without interrupting the run of the program.
     frivolity-format.
    
 ### Example
-'''python
+```python
 import papagei as ppg
 ppg.VERBOSE = ppg.VerboseLevel.DEBUG
 
 ppg.debug('This is example', 1)  # This message will show
 ppg.frivolity('This is example', 2)  # This won't show
-'''
+```
     
 ## Modifying the source code
 Even if it is not possible to add classes from outside of the package, the source code was made in a way that should 
