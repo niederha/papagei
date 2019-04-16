@@ -46,10 +46,14 @@ def mock_error(*args):
         print(*args)
 
 
-def warning(*args):
+def warning(*args, **kwarg):
+    """
+    warning_class = kwarg.pop('type', UserWarning)
+    msg = _format_string_from_tuple(args)
+    papagei_warning = warning_class(msg)
     if VERBOSE.value <= VerboseLevel.WARNING.value:
-        msg = _format_string_from_tuple(args)
-        warnings.warn(msg)
+        warn(papagei_warning)
+    return papagei_warning
 
 def mock_warning(*args):
     if VERBOSE.value <= VerboseLevel.WARNING.value:
