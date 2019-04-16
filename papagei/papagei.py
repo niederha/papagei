@@ -51,7 +51,7 @@ def error(*args):
             :param args: All formatted into a single string to be used as an error message
             :return: Raises an error
     """
-    if VERBOSE.value <= VerboseLevel.ERROR.value:
+    if VERBOSE.value >= VerboseLevel.ERROR.value:
         raise PapageiError(args)
 
 
@@ -61,7 +61,7 @@ def mock_error(*args):
         Works if VERBOSE is ERROR or higher.
             :param args: All formatted into a single string to be used as an error message.
     """
-    if VERBOSE.value <= VerboseLevel.ERROR.value:
+    if VERBOSE.value >= VerboseLevel.ERROR.value:
         msg = _format_string_from_tuple(args)
         msg = text_format['error']+text_header['error']+msg+text_format['normal']
         print(msg)
@@ -81,7 +81,7 @@ def warning(*args, **kwarg):
     warning_class = kwarg.pop('type', UserWarning)
     msg = _format_string_from_tuple(args)
     papagei_warning = warning_class(msg)
-    if VERBOSE.value <= VerboseLevel.WARNING.value:
+    if VERBOSE.value >= VerboseLevel.WARNING.value:
         warn(papagei_warning)
     return papagei_warning
 
@@ -92,7 +92,7 @@ def mock_warning(*args):
         Works if VERBOSE is WARNING or higher.
             :param args: All formatted into a single string to be used as a warning message.
     """
-    if VERBOSE.value <= VerboseLevel.WARNING.value:
+    if VERBOSE.value >= VerboseLevel.WARNING.value:
         msg = _format_string_from_tuple(args)
         msg = text_format['warning'] + text_header['warning'] + msg + text_format['normal']
         print(msg)
@@ -104,7 +104,7 @@ def info(*args):
         Works if VERBOSE is INFO or higher.
             :param args: All formatted into a single string to be used as an info message.
     """
-    if VERBOSE.value <= VerboseLevel.INFO.value:
+    if VERBOSE.value >= VerboseLevel.INFO.value:
         msg = _format_string_from_tuple(args)
         msg = text_format['info'] + text_header['info'] + msg + text_format['normal']
         print(msg)
@@ -116,7 +116,7 @@ def debug(*args):
         Works if VERBOSE is DEBUG or higher.
             :param args: All formatted into a single string to be used as a debug message.
     """
-    if VERBOSE.value <= VerboseLevel.DEBUG.value:
+    if VERBOSE.value >= VerboseLevel.DEBUG.value:
         msg = _format_string_from_tuple(args)
         msg = text_format['debug'] + text_header['debug'] + msg + text_format['normal']
         print(msg)
