@@ -8,7 +8,7 @@ text_format = {'normal': '\033[0;0;0m', 'error': '\033[0;31;0m', 'warning': '\03
                'info': '\033[0;34;0m', 'debug': '\033[0;32;0m', 'frivolous': '\033[0;0;0m'}
 
 # Different headers
-text_header = {'error': 'ERROR: ', 'warning': ' WARNING: ', 'info': 'INFO: ', 'debug': 'DEBUG: ',
+text_header = {'error': 'ERROR: ', 'warning': 'WARNING: ', 'info': 'INFO: ', 'debug': 'DEBUG: ',
                'frivolous': 'FRIVOLITY: '}
 
 
