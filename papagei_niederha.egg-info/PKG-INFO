@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: papagei-niederha
-Version: 0.0.1
+Version: 0.0.2
 Summary: A package for easy verbose logging, error and warnings.
 Home-page: https://github.com/niederha/papagei
 Author: Niederhauser Loïc

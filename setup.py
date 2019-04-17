@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="papagei-niederha",
-    version="0.0.1",
+    version="0.0.2",
     author="Niederhauser Loïc",
     author_email="loic.niederhauser@gmail.com",
     description="A package for easy verbose logging, error and warnings.",
