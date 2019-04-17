@@ -44,7 +44,7 @@ class PapageiError(Exception):
 VERBOSE = VerboseLevel.FRIVOLOUS  # Change this variable to change the verbose level
 
 
-def error(*args):
+def log_error(*args):
     """
         Raises an python error.
         Works is VERBOSE is ERROR or higher.
@@ -67,7 +67,7 @@ def mock_error(*args):
         print(msg)
 
 
-def warning(*args, **kwarg):
+def log_warning(*args, **kwarg):
     """
         Generates and print a python warning and returns the warning.
         Works if VERBOSE is WARNING or higher
@@ -98,7 +98,7 @@ def mock_warning(*args):
         print(msg)
 
 
-def info(*args):
+def log_info(*args):
     """
         Prints a message for generic information with a specific info-format.
         Works if VERBOSE is INFO or higher.
@@ -110,7 +110,7 @@ def info(*args):
         print(msg)
 
 
-def debug(*args):
+def log_debug(*args):
     """
         Prints a message for debug information with a specific debug-format.
         Works if VERBOSE is DEBUG or higher.
@@ -122,7 +122,7 @@ def debug(*args):
         print(msg)
 
 
-def frivolity(*args):
+def log_frivolity(*args):
     """
         Prints a message for very detailed info about the program with a specific frivolity-format.
         Works if VERBOSE is FRIVOLOUS or higher.
