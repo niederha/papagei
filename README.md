@@ -5,7 +5,17 @@ messages might require multiple lines of code. Papagei is an attempt to make a m
 in a simple way without importing multiple packages imports and with a minimal number of lines of code for each call. 
 Despite being fairly simple, papagei has the downside of being more rigid. It is good for simple cases and debug. For
 more complex error handling or message formatting you might want to get back to python built in functions and packages.
-
+The project is works on python3 and due to its simplicity, it should work in python2 as well however this has not been 
+tested and a proper functioning is not guaranteed in Python2. Papagei is now uploaded on pip and can be downloaded 
+using:
+```
+pip install --upgrade papagei-niederha
+```
+or
+```
+pip3 install --upgrade papagei-niederha
+```
+Depending on which version of pip is linked to python3. 
 ## Using papagei
 There are three major components in papagei:
 - VerboseLevel(Enum) (class)
