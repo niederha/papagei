@@ -45,15 +45,15 @@ All functions are link to a specific debug level. Two functions are available fo
 One uses the actual python warnings and error the other one (preceded by "mock_") only print a message in the console 
 without interrupting the run of the program.
 
-* error(*args): (Level: ERROR) Formats the args into a string and uses it to raise an error.
+* log_error(*args): (Level: ERROR) Formats the args into a string and uses it to raise an error.
 * mock_error(*args): (Level: ERROR) Formats the args into a string and prints them in an error-like format.
-* warning(*args, **kwargs): (Level: WARNING) Formats the args into a string and uses it to generate a warning. The 
+* log_warning(*args, **kwargs): (Level: WARNING) Formats the args into a string and uses it to generate a warning. The 
   warning type can be changed by passing a Waring class through the key-word 'type'. The warning is displayed and the
   warning object is returned by the function.
 * mock_warning(*args): (Level: WARNING) Formats the args into a string and displays it into a warning-like format.
-* info(*args): (Level: INFO) Formats the args into a string and displays it into a specific info-format.
-* debug(*args): (Level: DEBUG) Formats the args into a string and displays it into a specific debug-format.
-* frivolity(*args): (Level: FRIVOLOUS) Formats the args into a string and displays it into a specific 
+* log_info(*args): (Level: INFO) Formats the args into a string and displays it into a specific info-format.
+* log_debug(*args): (Level: DEBUG) Formats the args into a string and displays it into a specific debug-format.
+* log_frivolity(*args): (Level: FRIVOLOUS) Formats the args into a string and displays it into a specific 
   frivolity-format.
 
 ### Example
