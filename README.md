@@ -47,12 +47,13 @@ without interrupting the run of the program.
    
 ### Example
 ```python
-import papagei as ppg
+from papagei import papagei as ppg
 ppg.VERBOSE = ppg.VerboseLevel.DEBUG
 
 ppg.debug('This is example', 1)  # This message will show
 ppg.frivolity('This is example', 2)  # This won't show
 ```
+**NOTE:** The import statement has a slight redundancy in it. This should be fixed later.
     
 ## Modifying the source code
 Even if it is not possible to add classes from outside of the package, the source code was made in a way that should 
