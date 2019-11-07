@@ -1,5 +1,5 @@
 # PAPAGEI
-Papagei is a module that proposes an implementation for verbose logging. Python has options to do verbose logging, 
+Papagei is a python module that proposes an implementation for verbose logging. Python has options to do verbose logging, 
 error warning and error handling and so on. However, multiple packages are often implied and implementing the desired 
 messages might require multiple lines of code. Papagei is an attempt to make a module that allows to do verbose logging 
 in a simple way without importing multiple packages imports and with a minimal number of lines of code for each call. 
