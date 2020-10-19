@@ -25,7 +25,7 @@ There are three major components in papagei:
 ### VerboseLevel and verbose:
 In this implementation papagei has 6 verbose levels:
 - **SILENT:** Nothing will be displayed no errors will be raised no warnings will be returned.
-- **ERROR:** Only mock_errors() are displayed. errors are raised as usual. 
+- **ERROR:** Only `mock_errors()` are displayed. errors are raised as usual. 
 - **WARNINGS:** Errors behave as usual, and warnings and mock_warnings as well.
 - **INFO:** All messages from the previous levels plus the info messages.
 - **DEBUG:** All messages from the previous levels plus the debug messages.
@@ -38,22 +38,22 @@ VERBOSE = VerboseLevel.INFO
 **NOTE:** Due to its simple implementation the verbose level in papagei only works on the functions 
 form the papagei packages. In other words putting papagei.VERBOSE to silent will not silence errors raised outside of 
 the papagei package, won't implement any warning filter to cancel out warnings from outside of the papapgei module and 
-won't obliterate any print() done outside of the papagei module.
+won't obliterate any `print()` done outside of the papagei module.
 
 ### Functions
-All functions are link to a specific debug level. Two functions are available for the ERROR level and the WARNING level.
+All functions are link to a specific debug level. Two functions are available for the `ERROR` level and the `WARNING` level.
 One uses the actual python warnings and error the other one (preceded by "mock_") only print a message in the console 
 without interrupting the run of the program.
 
-* log_error(*args): (Level: ERROR) Formats the args into a string and uses it to raise an error.
-* mock_error(*args): (Level: ERROR) Formats the args into a string and prints them in an error-like format.
-* log_warning(*args, **kwargs): (Level: WARNING) Formats the args into a string and uses it to generate a warning. The 
+* `log_error(*args)`: (Level: ERROR) Formats the args into a string and uses it to raise an error.
+* `mock_error(*args)`: (Level: ERROR) Formats the args into a string and prints them in an error-like format.
+* `log_warning(*args, **kwargs)`: (Level: WARNING) Formats the args into a string and uses it to generate a warning. The 
   warning type can be changed by passing a Waring class through the key-word 'type'. The warning is displayed and the
   warning object is returned by the function.
-* mock_warning(*args): (Level: WARNING) Formats the args into a string and displays it into a warning-like format.
-* log_info(*args): (Level: INFO) Formats the args into a string and displays it into a specific info-format.
-* log_debug(*args): (Level: DEBUG) Formats the args into a string and displays it into a specific debug-format.
-* log_frivolity(*args): (Level: FRIVOLOUS) Formats the args into a string and displays it into a specific 
+* `mock_warning(*args)`: (Level: WARNING) Formats the args into a string and displays it into a warning-like format.
+* `log_info(*args)`: (Level: INFO) Formats the args into a string and displays it into a specific info-format.
+* `log_debug(*args)`: (Level: DEBUG) Formats the args into a string and displays it into a specific debug-format.
+* `log_frivolity(*args)`: (Level: FRIVOLOUS) Formats the args into a string and displays it into a specific 
   frivolity-format.
 
 ### Example
@@ -76,9 +76,9 @@ each string of the corresponding level to format it. Chang the value in this dic
 Same goes for the text_header dictionary which displays a header at the beginning of a message.
 
 ### Adding, removing or moving a class
-To move a class in the hierarchy all that has to be done it to change its position in the VerboseLevel(Enum) enum. 
+To move a class in the hierarchy all that has to be done it to change its position in the `VerboseLevel(Enum)` enum. 
 This enum is auto-numbered so moving it will adapt the value of the item and the checks in every functions will be 
-adapted. To add an item the corresponding VerboseLevel should be added in the enum. Then the text_format and text_header 
+adapted. To add an item the corresponding VerboseLevel should be added in the enum. Then the `text_format` and `text_header` 
 dictionaries should be updated. Finally a dedicated function for the new level can be written on the model debug, 
-info or frivolity, using _format_string_from_tuple(string_tuple) to format *args into a single string. Same process can 
+info or frivolity, `using _format_string_from_tuple(string_tuple)` to format \*args into a single string. Same process can 
 be followed in reverse to remove a class.
